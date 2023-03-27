@@ -10,7 +10,55 @@ datasource db {
 
 model Customer {
   id        Int      @id @default(autoincrement())
+  ticketId  Int
   name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model contactRelation {
+  id        Int      @id @default(autoincrement())
+  customersId        Int
+  phone     String
+  email     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Movie {
+  id        Int      @id @default(autoincrement())
+  title      String
+  runtimeMins   Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Screening {
+  id        Int      @id @default(autoincrement())
+  numberId  Int
+  ticketId  Int
+  startsAt      DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MovieScreeningRelation {
+  id        Int      @id @default(autoincrement())
+  moiveId   Int
+  startsAt      DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Screen {
+  id        Int      @id @default(autoincrement())
+  number    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Ticket {
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
